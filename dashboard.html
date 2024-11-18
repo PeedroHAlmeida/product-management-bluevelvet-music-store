@@ -17,7 +17,7 @@
         base no usuário autenticado.
         Template:  Welcome, {name} {(role)}
         -->
-        <div>Welcome, Atticus (Administrator)
+        <div id="welcome-dashboard">
             <button id="logoutBtn">Logout</button>
         </div>
        
@@ -185,6 +185,17 @@
             <button>4</button>
             <button>...Last</button>
         </div>
+
+
+
+        <div id="pages">
+            <h3>Pages</h3>
+            <button id="redirect-create-product">Create Product</button>
+            <button id="redirect-edit-product">Edit Product</button>
+            <button id="redirect-index">Index</button>
+            <button id="redirect-register">Register</button>
+            <button id="redirect-view-product">View Product</button>
+        </div>
     </div>
 
     <!-- 
@@ -254,5 +265,7 @@
         });
 
     </script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
+

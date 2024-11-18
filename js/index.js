@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const email = document.getElementById("email")?.value.trim();
             const password = document.getElementById("password")?.value.trim();
+
             const rememberMe = document.getElementById("remember-me")?.checked;
 
             const users = JSON.parse(window.localStorage.getItem("users")) || [];
@@ -20,9 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     window.localStorage.removeItem("rememberedEmail");
                     window.localStorage.removeItem("rememberedPassword");
                 }
+                window.localStorage.setItem("rememberedRole", userFound.role);
+                window.localStorage.setItem("rememberedName", userFound.name);
                 alert(`Welcome, ${userFound.name}!`);
-                if (["admin", "editor", "salesperson"].includes(userFound.role)) {
-                    location.href = "register.html";
+                if (["admin", "editor", "salesperson", "shippper"].includes(userFound.role)) {
+                    location.href = "dashboard.html";
                 } else {
                     alert("Unauthorized role.");
                 }
