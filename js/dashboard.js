@@ -54,6 +54,26 @@ document.addEventListener("DOMContentLoaded", function () {
     redirectIndex.addEventListener("click", function() {
     location.href = "index.html";
     });
+
+        // Register //
+    const redirectRegister = document.getElementById("redirect-register");
+
+    if (redirectRegister) {
+        redirectRegister.addEventListener("click", function () {
+            if (loggedInUser == "admin") {
+                location.href = "register.html"; 
+            } else {
+                alert("Only administrators have access to this page"); 
+            }
+        });
+    }
+
+        // View Product //
+    const redirectViewProduct = document.getElementById("redirect-view-product");
+
+    redirectViewProduct.addEventListener("click", function() {
+    location.href = "view-product.html";
+    });
 });
 
 
