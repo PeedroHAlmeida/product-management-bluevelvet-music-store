@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+
     const btnLogin = document.getElementById("btnLogin");
 
     if (btnLogin) {
@@ -11,8 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const rememberMe = document.getElementById("remember-me")?.checked;
 
             const users = JSON.parse(window.localStorage.getItem("users")) || [];
-            const userFound = users.find(user => user.email == email && user.password == password);
-
+            
+            const isAdmin = (email === "admin@admin" && password === "adminadmin");
+            const userFound = users.find(user => (
+                (user.email === email && user.password === password) || isAdmin
+            ));
+            
+            
             if (userFound) {
                 if (rememberMe) {
                     window.localStorage.setItem("rememberedEmail", email);
@@ -48,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
                  passwordInput.value = rememberedPassword;
             }
 
-            // Optionally, check the "Remember Me" checkbox if values exist
             let rememberMeCheckbox = document.getElementById("remember-me");
             if (rememberMeCheckbox) {
                 rememberMeCheckbox.checked = true;

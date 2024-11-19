@@ -1,4 +1,22 @@
-// Botão de Registro
+// Super user Admin //
+function initializeAdminUser() {
+    const users = JSON.parse(window.localStorage.getItem("users")) || [];
+
+    const adminExists = users.some(user => user.email === "admin@admin");
+
+    if (!adminExists) {
+        users.push({
+            name: "Pedro Almeida",
+            email: "admin@admin",
+            password: "adminadmin",
+            role: "admin"
+        });
+        window.localStorage.setItem("users", JSON.stringify(users));
+    }
+}
+initializeAdminUser();
+
+// Botão de Registro //
 const btnRegister = document.getElementById("btnRegister");
 if (btnRegister) {
     btnRegister.addEventListener("click", function registrar() {
@@ -28,5 +46,7 @@ if (btnRegister) {
         location.href = "index.html";
     });
 }
+
+
 
 
